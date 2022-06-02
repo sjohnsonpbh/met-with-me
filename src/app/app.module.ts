@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { SearchComponent } from './search/search.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
