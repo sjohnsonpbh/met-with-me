@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -16,5 +17,10 @@ export class AuthComponent implements OnInit {
 
 onSwitchAuthMode() {
     this.isLoginMode = !this.isLoginMode;
+}
+
+onAuthFormSubmit(formObj: NgForm) {
+  console.log('Form Values:', formObj.value);
+  formObj.reset();
 }
 }
