@@ -13,8 +13,13 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFetchArt() {
-
+  onFetchArt(searchInput: string) {
+    const formattedQuery = searchInput.split('').join('+').toLowerCase();
+    this.http
+    .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${formattedQuery}`)
+    .subscribe((searchResponse) => {
+      console.log('searchResponse', searchResponse);
+    });
   }
 
 }

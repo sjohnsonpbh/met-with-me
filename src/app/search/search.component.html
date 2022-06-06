@@ -1,6 +1,8 @@
-<p>search works!</p>
-
-<form #searchForm="ngForm" (ngSubmit)="onFetchArt()" class="form-inline">
+<form
+  #searchForm="ngForm"
+  (ngSubmit)="onFetchArt(searchForm.value.search)"
+  class="form-inline"
+>
   <div class="form-group mr-2">
     <!-- SEARCH -->
     <label for="search" class="sr-only">Search</label>
