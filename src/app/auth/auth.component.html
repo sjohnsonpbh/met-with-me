@@ -28,16 +28,46 @@
       <button class="btn btn-primary mr-3">Sign Up</button>
       |
       <button class="btn btn-primary">Login</button>
+      |
+      <button class="btn btn-primary" type="submit">
+        {{ isLoginMode ? "Sign In" : "Sign Up" }}
+      </button>
+      |
+      <button class="btn btn-primary" type="button" (click)="onSwitchAuthMode()">
+        Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+      </button>
     </form>
-
-    <!-- BUTTONS -->
-<button class="btn btn-primary" type="submit">
-  {{ isLoginMode ? "Sign In" : "Sign Up" }}
-</button>
-|
-<button class="btn btn-primary" type="button" (click)="onSwitchAuthMode()">
-  Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
-</button>
-
   </div>
 </div>
+
+<form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
+  <!-- EMAIL -->
+  <input
+    type="email"
+    id="email"
+    name="email"
+    class="form-control"
+    email
+    ngModel
+    required
+  />
+  <!-- . . . -->
+
+  <!-- PASSWORD -->
+  <input
+    type="password"
+    id="password"
+    name="password"
+    class="form-control"
+    minlength="6"
+    ngModel
+    required
+  />
+  <!-- . . . -->
+
+  <!-- BUTTONS -->
+  <button class="btn btn-primary" type="submit" [disabled]="!authFormRef.valid">
+    {{ isLoginMode ? "Sign In" : "Sign Up" }}
+  </button>
+  <!-- . . . -->
+</form>
