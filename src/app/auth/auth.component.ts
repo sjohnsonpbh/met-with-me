@@ -12,4 +12,9 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isLoginMode = true;
+
+onSwitchAuthMode() {
+    this.isLoginMode = !this.isLoginMode;
+}
 }
