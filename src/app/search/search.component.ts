@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
   onFetchArt(searchInput: string) {
     const formattedQuery = searchInput.split('').join('+').toLowerCase();
     this.http
-    .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${formattedQuery}`)
+    .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${formattedQuery}`)
     .subscribe((searchResponse) => {
       console.log('searchResponse', searchResponse);
     });
