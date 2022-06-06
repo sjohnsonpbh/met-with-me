@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { SearchComponent } from './search/search.component';
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
-    AppComponent,
+import { NavbarComponent } from './navbar/navbar.component';
+
 
     AuthComponent,
     SearchComponent
@@ -20,7 +21,10 @@ import { SearchComponent } from './search/search.component';
     BrowserModule,
     AppRoutingModule
   ],
+@NgModule({
+  declarations: [AppComponent, AuthComponent, SearchComponent, NavbarComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
