@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
