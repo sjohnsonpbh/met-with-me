@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ArtObject } from '../shared/artobject.model';
 
 @Component({
   selector: 'app-search',
@@ -7,41 +8,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  searchItemsDetails:ArtObject[] = [];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  // method for searching the API
   onFetchArt(searchInput: string) {
+
+    // format the search query
     const formattedQuery = searchInput.split('').join('+').toLowerCase();
 
+    // search the API which only retrieves object IDs
     this.http
       .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${formattedQuery}`)
       .subscribe((searchResponse:any) => {
         console.log('searchResponse', searchResponse);
 
+        // place the first few object IDs in an array
         let searchResponseArray = [];
         for (let i=1; i<10; i++) {
           searchResponseArray.push(searchResponse.objectIDs[i])
           };
 
-        let searchItemsDetails = [];
+        // loop through the array
         for (let i=1; i<6; i++) {
           let itemID = searchResponseArray[i];
           this.http
             .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${itemID}`)
             .subscribe((itemResponse:any) => {
-              searchItemsDetails.push(itemResponse)
+              const formattedArtObject = new ArtObject(
+                itemResponse.artistDisplayName,
+                itemResponse.title,
+                itemResponse.objectDate,
+                itemResponse.medium,
+                itemResponse.objectURL,
+                itemResponse.primaryImageSmall,
+                itemResponse.rightsAndReproduction
+
+      );
+              this.searchItemsDetails.push(formattedArtObject)
+      console.log(itemResponse);
             });
         }
-          console.log(searchItemsDetails);
+          console.log(this.searchItemsDetails);
 
       this.saveArt(searchResponseArray);
     });
   }
 
   saveArt(searchResponseArray) {
-
   }
 }

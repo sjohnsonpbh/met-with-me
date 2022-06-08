@@ -23,4 +23,20 @@
   </button>
 </form>
 
-<div class="results">Conditional results display here.</div>
+<div class="container" *ngFor="let item of searchItemsDetails">
+  <div class="row">
+    <div class="col">
+      <img width="150px" src="{{ item.primaryImageSmall }}" />
+    </div>
+    <div class="col">
+      {{ item.title }}
+    </div>
+    <div class="col">
+      , {{ item.artistDisplayName }}, {{ item.objectDate }} {{ item.medium }}, ,
+      {{ item.rightsAndReproduction }}
+      <a href="{{ item.objectURL }}">More Details</a>
+    </div>
+  </div>
+
+  {{ item.objectURL }}
+</div>
