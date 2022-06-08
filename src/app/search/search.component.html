@@ -3,40 +3,58 @@
   (ngSubmit)="onFetchArt(searchForm.value.search)"
   class="form-inline"
 >
-  <div class="form-group mr-2">
-    <!-- SEARCH -->
-    <label for="search" class="sr-only">Search</label>
-    <input
-      type="search"
-      class="form-control"
-      name="search"
-      id="search"
-      placeholder="Search"
-      [(ngModel)]="searchForm.value.search"
-      required
-    />
+  <div class="row">
+    <div class="col">
+      <div class="form-group mr-2">
+        <!-- SEARCH  FORM-->
+        <!-- <label for="search" class="sr-only">Search</label> -->
+        <input
+          type="search"
+          class="form-control"
+          name="search"
+          id="search"
+          placeholder="Enter Search Terms"
+          [(ngModel)]="searchForm.value.search"
+          required
+        />
+      </div>
+    </div>
+    <div class="col">
+      <!-- SUBMIT -->
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!searchForm.valid"
+      >
+        Search
+      </button>
+    </div>
   </div>
-
-  <!-- SUBMIT -->
-  <button class="btn btn-primary" type="submit" [disabled]="!searchForm.valid">
-    Search
-  </button>
 </form>
-
+<br />
+<br />
+<!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
 <div class="container" *ngFor="let item of searchItemsDetails">
   <div class="row">
+    <!-- Use ngIf to display image or placeholder -->
+    <!-- <div class="col" *ngIf="hasImageURL === false">
+      <img
+        width="150px"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png"
+      />
+    </div> -->
     <div class="col">
       <img width="150px" src="{{ item.primaryImageSmall }}" />
     </div>
+
     <div class="col">
       {{ item.title }}
     </div>
     <div class="col">
-      , {{ item.artistDisplayName }}, {{ item.objectDate }} {{ item.medium }}, ,
+      {{ item.artistDisplayName }}. {{ item.objectDate }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
       <a href="{{ item.objectURL }}">More Details</a>
     </div>
   </div>
-
-  {{ item.objectURL }}
+  <hr />
 </div>
