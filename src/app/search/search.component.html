@@ -40,6 +40,7 @@
 <!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
 <div class="container" *ngFor="let item of searchItemsDetails">
   <div class="row">
+    <!-- Display image; Show placeholder if url is invalid  -->
     <div class="col">
       <img
         width="150px"
@@ -48,16 +49,22 @@
       />
     </div>
 
+    <!-- Display item title -->
+    <div class="col">{{ item.title ? item.title : "No Title" }}</div>
+
+    <!-- Display other item metadata -->
     <div class="col">
-      {{ item.title }}
-    </div>
-    <div class="col">
-      {{ item.artistDisplayName }}. {{ item.objectDate }}. {{ item.medium }}.
+      {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
+      {{ item.objectDate ? item.objectDate : "No date" }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
-      <a href="{{ item.objectURL }}">More Details</a>
+
+      <!-- Link to object details on Met site -->
+      <!-- <p><a href="{{ item.objectURL }}" alt="More Details">More Details</a></p> -->
     </div>
+
+    <!-- Button to add item to gallery -->
     <div class="col">
-      <button class="btn btn-success" type="button">Add to My Gallery</button>
+      <button class="btn btn-success" type="button">Add to Gallery</button>
     </div>
   </div>
   <hr />

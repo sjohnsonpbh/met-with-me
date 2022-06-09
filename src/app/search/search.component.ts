@@ -34,27 +34,23 @@ export class SearchComponent implements OnInit {
 
         // loop through the array's first five and submit to object API for details
         for (let i=1; i<6; i++) {
-          let hasImageURL = false;
           let itemID = searchResponseArray[i];
           this.http
             .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${itemID}`)
             .subscribe((itemResponse:any) => {
               const formattedArtObject = new ArtObject(
-                itemResponse.artistDisplayName,
                 itemResponse.title,
+                itemResponse.artistDisplayName,
                 itemResponse.objectDate,
                 itemResponse.medium,
-                itemResponse.objectURL,
                 itemResponse.primaryImageSmall,
-                itemResponse.rightsAndReproduction
+                itemResponse.rightsAndReproduction,
+                itemResponse.objectURL,
+
                 );
 
                 // push each object detail to the searchItemsDetails array for display
               this.searchItemsDetails.push(formattedArtObject);
-              // assign a boolean variable for ngIf to display image or placeholder
-                if (formattedArtObject.primaryImageSmall.includes("http")) {
-                  hasImageURL = true;
-                };
             });
         }
 
