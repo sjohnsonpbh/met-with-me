@@ -48,7 +48,6 @@ export class SearchComponent implements OnInit {
                 itemResponse.objectURL,
 
                 );
-
                 // push each object detail to the searchItemsDetails array for display
               this.searchItemsDetails.push(formattedArtObject);
             });
