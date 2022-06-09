@@ -38,12 +38,14 @@ export class SearchComponent implements OnInit {
           this.http
             .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${itemID}`)
             .subscribe((itemResponse:any) => {
+              console.log(itemResponse)
               const formattedArtObject = new ArtObject(
                 itemResponse.title,
                 itemResponse.artistDisplayName,
                 itemResponse.objectDate,
                 itemResponse.medium,
                 itemResponse.primaryImageSmall,
+                itemResponse.primaryImage,
                 itemResponse.rightsAndReproduction,
                 itemResponse.objectURL,
 
