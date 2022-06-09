@@ -42,19 +42,20 @@
   <div class="row">
     <!-- Display image; Show placeholder if url is invalid  -->
     <div class="col">
-      <img
-        width="150px"
-        src="{{ item.primaryImageSmall }}"
-        onerror="src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
-      />
+      <a href="{{ item.primaryImage }}" target="_blank"
+        ><img
+          width="150px"
+          src="{{ item.primaryImageSmall }}"
+          onerror="src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
+      /></a>
     </div>
 
     <!-- Display item title -->
-    <div class="col">{{ item.title ? item.title : "No Title" }}</div>
+    <div class="col">"{{ item.title ? item.title : "No Title" }}"</div>
 
     <!-- Display other item metadata -->
     <div class="col">
-      {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
+      By {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
       {{ item.objectDate ? item.objectDate : "No date" }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
 
