@@ -25,7 +25,6 @@ export class SearchComponent implements OnInit {
     this.http
       .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${formattedQuery}`)
       .subscribe((searchResponse:any) => {
-        console.log('searchResponse', searchResponse);
 
         // place the first few object IDs in an array
         let searchResponseArray = [];
