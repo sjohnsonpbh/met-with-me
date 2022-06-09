@@ -40,15 +40,12 @@
 <!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
 <div class="container" *ngFor="let item of searchItemsDetails">
   <div class="row">
-    <!-- Use ngIf to display image or placeholder -->
-    <!-- <div class="col" *ngIf="hasImageURL === false">
+    <div class="col">
       <img
         width="150px"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png"
+        src="{{ item.primaryImageSmall }}"
+        onerror="src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
       />
-    </div> -->
-    <div class="col">
-      <img width="150px" src="{{ item.primaryImageSmall }}" />
     </div>
 
     <div class="col">
