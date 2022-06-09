@@ -31,18 +31,20 @@
     </div>
   </div>
 </form>
-Note: not all results contain images and other data.
 <br />
 <br />
 <!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
 <div class="container" *ngFor="let item of searchItemsDetails">
   <div class="row">
-    <div class="col">
+    <!-- Use ngIf to display image or placeholder -->
+    <!-- <div class="col" *ngIf="hasImageURL === false">
       <img
         width="150px"
-        src="{{ item.primaryImageSmall }}"
-        onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png"
       />
+    </div> -->
+    <div class="col">
+      <img width="150px" src="{{ item.primaryImageSmall }}" />
     </div>
 
     <div class="col">
@@ -52,9 +54,6 @@ Note: not all results contain images and other data.
       {{ item.artistDisplayName }}. {{ item.objectDate }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
       <a href="{{ item.objectURL }}">More Details</a>
-    </div>
-    <div class="col">
-      <button class="btn btn-success" type="button">Add to My Gallery</button>
     </div>
   </div>
   <hr />
