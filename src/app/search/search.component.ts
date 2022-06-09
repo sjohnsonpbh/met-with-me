@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ArtObject } from '../shared/artobject.model';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -23,8 +24,9 @@ export class SearchComponent implements OnInit {
 
     // search the API which only retrieves object IDs
     this.http
-      .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${formattedQuery}`)
+      .get(`https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=11&q=${formattedQuery}`)
       .subscribe((searchResponse:any) => {
+
 
         // place the first few object IDs in an array
         let searchResponseArray = [];
