@@ -1,41 +1,43 @@
-<nav class="navbar navbar-expand-lg mb-4">
-  <a
-    class="navbar-brand brand"
-    id="brand"
-    style="cursor: pointer"
-    routerLink="/"
-  >
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" id="brand" style="cursor: pointer" routerLink="/">
     <img
       src="./../../assets/artboard_6.png"
-      alt="Link to met with me home"
       height="150"
-  /></a>
-
-  <!-- Main Nav Links -->
-
-  <a
-    class="nav-link"
-    style="cursor: pointer"
-    routerLink="/auth"
-    routerLinkActive="active"
-    >Authenticate</a
-  >
-
-  <a
-    class="nav-link"
-    style="cursor: pointer"
-    routerLink="/search"
-    routerLinkActive="active"
-  >
-    Search
+      class="d-inline-block align-top"
+      alt=""
+    />
   </a>
-
-  <a
-    class="nav-link"
-    style="cursor: pointer"
-    routerLink="/my-gallery"
-    routerLinkActive="active"
-  >
-    My Gallery</a
-  >
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          routerLink="/auth"
+          routerLinkActive="active"
+          >Login</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          routerLink="/search"
+          routerLinkActive="active"
+        >
+          Search
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          routerLink="/my-gallery"
+          routerLinkActive="active"
+        >
+          My Gallery</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
