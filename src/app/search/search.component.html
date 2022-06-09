@@ -48,16 +48,16 @@
       />
     </div>
 
-    <div class="col">
-      {{ item.title }}
-    </div>
+    <div class="col">{{ item.title }}</div>
     <div class="col">
       {{ item.artistDisplayName }}. {{ item.objectDate }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
-      <a href="{{ item.objectURL }}">More Details</a>
+      <div class="col">
+        <a href="{{ item.objectURL }}" alt="More Details">More Details</a>
+      </div>
     </div>
     <div class="col">
-      <button class="btn btn-success" type="button">Add to My Gallery</button>
+      <button class="btn btn-success" type="button">Add to Gallery</button>
     </div>
   </div>
   <hr />
