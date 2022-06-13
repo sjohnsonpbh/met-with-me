@@ -5,6 +5,7 @@ export class ArtObject {
     public objectDate: string,
     public medium: string,
     public primaryImageSmall: string,
+    public primaryImage: string,
     public rightsAndReproduction: string,
     public objectURL: string
 

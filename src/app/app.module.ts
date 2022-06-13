@@ -12,9 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { MyGalleryComponent } from './my-gallery/my-gallery.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, SearchComponent, NavbarComponent, FooterComponent],
+  declarations: [AppComponent, AuthComponent, SearchComponent, NavbarComponent, FooterComponent, MyGalleryComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
