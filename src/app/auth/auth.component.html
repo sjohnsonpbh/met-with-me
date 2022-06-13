@@ -49,5 +49,9 @@
         Toggle to {{ isSignInMode ? "Sign Up" : "Sign In" }}
       </button>
     </form>
-  </div>
+    <!-- . . . -->
+<!-- ERROR -->
+<p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+
+</div>
 </div>
