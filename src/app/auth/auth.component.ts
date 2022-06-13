@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Injectable ({providedIn: 'root'})
 export class ServiceNameService {
   constructor() { }
 
-}"
+}
 
 @Component({
   selector: 'app-auth',
@@ -16,11 +17,11 @@ export class ServiceNameService {
 })
 
 export class AuthComponent implements OnInit {
-  authObs: Observable<AuthResData>;
+  authObs: Observable<any>;
   isSignInMode = true;
 
-  constructor(private authService: AuthService, private router: Router)
-}
+  constructor(private authService: AuthService, private router: Router){}
+
 ngOnInit(): void {}
 
 onToggleAuthMode() {
@@ -37,7 +38,7 @@ onAuthFormSubmit(formObj: NgForm) {
   // Conditional to see what "mode" we are in
   if (this.isSignInMode) {
     // Attempt: Sign In User
-    this.authObs = this.authService.signIn(email, password);
+    // this.authObs = this.authService.signIn(email, password);
   } else {
     // Attempt: Sign Up User
     this.authObs = this.authService.signUp(email, password);
