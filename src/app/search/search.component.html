@@ -38,7 +38,7 @@
 <br />
 
 <!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
-<div class="container" *ngFor="let item of searchItemsDetails">
+<div class="container" *ngFor="let item of searchItemsDetails; index as id">
   <div class="row">
     <!-- Display image; Show placeholder if url is invalid  -->
     <div class="col">
@@ -71,7 +71,13 @@
 
     <!-- Button to add item to gallery -->
     <div class="col">
-      <button class="btn btn-success" type="button">Add to Gallery</button>
+      <button
+        class="btn btn-success"
+        type="button"
+        (click)="onAddArtToGallery(item)"
+      >
+        Add to Gallery
+      </button>
     </div>
   </div>
   <hr />

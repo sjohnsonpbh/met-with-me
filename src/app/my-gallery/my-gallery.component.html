@@ -1,1 +1,13 @@
-<p>my-gallery works!</p>
+<!-- If there is nothing in array, ignore paragraph with a ngIf ? -->
+<p>Search art, and add to My Gallery</p>
+
+<div class="row justify-content-between">
+  <div class="col-md-6">
+    <h3>My Gallery</h3>
+    <app-my-gallery-list></app-my-gallery-list>
+  </div>
+
+  <div class="col-md-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
