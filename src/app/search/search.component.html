@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <form
   #searchForm="ngForm"
   (ngSubmit)="onFetchArt(searchForm.value.search)"
@@ -75,4 +76,110 @@
     </div>
   </div>
   <hr />
+=======
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,187&family=Jura&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="search">
+  <div class="row">
+    <div class="col-xl-3">
+      <img
+        src="./../../assets/artboard_6.png"
+        height="150"
+        class="d-inline-block align-top"
+        alt="met with me"
+      />
+    </div>
+    <div class="col-xl-9">
+      <form
+        #searchForm="ngForm"
+        (ngSubmit)="onFetchArt(searchForm.value.search)"
+        class="form-inline"
+      >
+        <div class="row">
+          <div class="col">
+            <div class="form-group mr-2">
+              <!-- SEARCH  FORM-->
+              <!-- <label for="search" class="sr-only">Search</label> -->
+              <input
+                type="search"
+                class="form-control"
+                name="search"
+                id="search"
+                placeholder="Enter Search Terms"
+                [(ngModel)]="searchForm.value.search"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <!-- SUBMIT -->
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="!searchForm.valid"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+      *Note: Images not in the public domain are not available.
+      <div class="quote">
+        <blockquote>
+          If I could say it in words there would be no reason to paint. --
+          Edward Hopper
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <br />
+
+  <!-- DISPLAY RESULTS FROM SEARCHITEMSDETAILS ARRAY -->
+  <div class="container" *ngFor="let item of searchItemsDetails">
+    <div class="row">
+      <!-- Display image; Show placeholder if url is invalid  -->
+      <div class="col">
+        <a href="{{ item.primaryImage }}" target="_blank"
+          ><img
+            width="150px"
+            src="{{ item.primaryImageSmall }}"
+            onerror="src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
+        /></a>
+      </div>
+
+      <!-- Display item title -->
+      <div class="col">
+        "{{ item.title ? item.title : "No Title" }}" by
+        {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
+      </div>
+
+      <!-- Display other item metadata -->
+      <div class="col">
+        {{ item.objectDate ? item.objectDate : "No date" }}. {{ item.medium }}.
+        {{ item.rightsAndReproduction }}
+
+        <!-- Link to object details on Met site -->
+        <p>
+          <a href="{{ item.objectURL }}" alt="More Details" target="_blank"
+            >More Details & Images</a
+          >
+        </p>
+      </div>
+
+      <!-- Button to add item to gallery -->
+      <div class="col">
+        <button class="btn btn-success" type="button">Add to Gallery</button>
+      </div>
+    </div>
+    <hr />
+  </div>
+>>>>>>> Stashed changes
 </div>
