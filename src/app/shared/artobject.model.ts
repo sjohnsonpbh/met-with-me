@@ -4,9 +4,10 @@ export class ArtObject {
     public artistDisplayName: string,
     public objectDate: string,
     public medium: string,
-    public linkResource: string,
     public primaryImageSmall: string,
-    public rightsAndReproduction: string
+    public primaryImage: string,
+    public rightsAndReproduction: string,
+    public objectURL: string
 
   ) {}
 }
