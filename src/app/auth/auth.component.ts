@@ -6,14 +6,39 @@ import { NgForm } from '@angular/forms';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
+
+
 export class AuthComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) {}
+  // . . .
+  onAuthFormSubmit(formObj: NgForm) {
+    // Validation check
+      if (!formObj.valid) return;
 
-  ngOnInit(): void {
+  // Destructure the form input values
+      const { email, password } = formObj.value
+
+  // Conditional to see what mode we are in
+      if (this.isLoginMode) {
+        // Sign In Logic
+      } else {
+        // Sign Up Logic
+        this.authService.signUp(email, password).subscribe(
+          (res) => {
+            console.log('Auth Response Success:', res);
+          },
+          (err) => {
+            console.error('Auth Res Error:', err);
+          }
+        );
+      }
+
+      // Observable logic with error handling
+
+  // Reset the form
+      formObj.reset();
   }
-
-  isLoginMode = true;
 
 onSwitchAuthMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -24,3 +49,4 @@ onAuthFormSubmit(formObj: NgForm) {
   formObj.reset();
 }
 }
+
