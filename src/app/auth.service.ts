@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './User.model';
 import { tap, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -41,7 +40,7 @@ export interface UserData {
 })
 export class AuthService {
 
-  
+
   constructor(private http: HttpClient) {}
 
 
