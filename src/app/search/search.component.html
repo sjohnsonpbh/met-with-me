@@ -51,11 +51,13 @@
     </div>
 
     <!-- Display item title -->
-    <div class="col">"{{ item.title ? item.title : "No Title" }}"</div>
+    <div class="col">
+      "{{ item.title ? item.title : "No Title" }}" by
+      {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
+    </div>
 
     <!-- Display other item metadata -->
     <div class="col">
-      By {{ item.artistDisplayName ? item.artistDisplayName : "Anonymous" }}.
       {{ item.objectDate ? item.objectDate : "No date" }}. {{ item.medium }}.
       {{ item.rightsAndReproduction }}
 
