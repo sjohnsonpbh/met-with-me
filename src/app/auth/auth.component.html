@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 offset-md-3">
+
+    <div style= "width:10px; margin: 0 auto; padding:20px 0;"> </div>
+
     <form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
       <!-- EMAIL - input -->
       <div class="form-group">
@@ -29,6 +32,9 @@
         />
       </div>
 
+
+      <div style= "width:10px; margin: 0 auto; padding:10px 0;"> </div>
+
       <!-- SUBMIT - button -->
       <button
         type="submit"
@@ -38,7 +44,9 @@
         {{ isSignInMode ? "Sign In" : "Sign Up" }}
       </button>
 
-      |
+      <div
+class ="space"> </div> | <div
+class ="space"> </div>
 
       <!-- TOGGLE - button -->
       <button
@@ -46,12 +54,14 @@
         class="btn btn-secondary ml-1"
         (click)="onToggleAuthMode()"
       >
-        Toggle to {{ isSignInMode ? "Sign Up" : "Sign In" }}
+        Switch to {{ isSignInMode ? "Sign Up" : "Sign In" }}
       </button>
     </form>
     <!-- . . . -->
 <!-- ERROR -->
 <p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+
+<div style= "width:10px; margin: 0 auto; padding:100px 0;"> </div>
 
 </div>
 </div>
