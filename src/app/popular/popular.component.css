@@ -118,3 +118,16 @@ body {
   overflow: hidden;
   background-color: #fff;
 }
+
+a {
+  color: #282828
+}
+
+a:link {
+  text-decoration: none;
+  color: #282828
+}
+
+a:hover {
+  text-decoration: underline;
+}
