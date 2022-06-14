@@ -118,3 +118,27 @@ body {
   overflow: hidden;
   background-color: #fff;
 }
+
+a {
+  color: #282828
+}
+
+a:link {
+  text-decoration: none;
+  color: #282828
+}
+
+.card__title {
+  font-family: "MockFlowFont";
+  font-size: larger;
+  color: rgb(79, 77, 77);
+}
+
+a:link {
+  color:rgb(79, 77, 77);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
