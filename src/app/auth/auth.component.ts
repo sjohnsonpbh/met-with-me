@@ -33,7 +33,7 @@ export class AuthComponent implements OnInit {
       // Attempt: Sign In User
       this.authObs = this.authService.signIn(email, password);
     } else {
-      //SIgn up user
+      //Sign up user
       this.authObs = this.authService.signUp(email, password)
     }
 
