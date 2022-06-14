@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NavbarComponent } from './navbar/navbar.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { MyGalleryComponent } from './my-gallery/my-gallery.component';
 import { PodcastsComponent } from './podcasts/podcasts.component';
