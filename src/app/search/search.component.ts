@@ -63,7 +63,7 @@ export class SearchComponent implements OnInit {
 
   // add to gallery - communicate with the my-gallery service
   onAddArtToGallery(artobject: ArtObject) {
-    console.log(artobject);
+    // console.log(artobject);
     this.myGalleryService.addArtToGallery(artobject);
   }
 }

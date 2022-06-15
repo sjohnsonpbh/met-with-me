@@ -20,4 +20,22 @@ export class MyGalleryService {
     this.myGalleryArtChanged.next(this.myGalleryArtList.slice());
     // navigate to my-gallery ??
   }
+
+  // READ (many)
+  getArtList() {
+    return this.myGalleryArtList.slice();
+  }
+
+  // READ (one)
+  getArt(idx: number) {
+    return this.myGalleryArtList.slice()[idx];
+  }
+
+  // DELETE (one)
+  removeArtFromGallery(idx: number) {
+    if (idx === -1) return;
+
+    this.myGalleryArtList.splice(idx, 1);
+    this.myGalleryArtChanged.next(this.myGalleryArtList.slice());
+  }
 }

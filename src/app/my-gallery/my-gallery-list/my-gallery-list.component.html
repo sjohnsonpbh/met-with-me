@@ -1,1 +1,38 @@
-<p>my-gallery-list works!</p>
+<div class="row mb-3" *ngFor="let artwork of myArt; let idx = index">
+  <div class="col-md-12">
+    <a
+      style="cursor: pointer"
+      class="list-group-item clearfix"
+      [routerLink]="[idx]"
+      routerLinkActive="active"
+    >
+      <div class="float-left">
+        <!-- TITLE -->
+        <h5 class="list-group-item-heading">{{ artwork.title }}</h5>
+
+        <!-- ARTIST  -->
+        <p class="list-group-item-text mb-0">
+          {{ artwork.artistDisplayName }}
+        </p>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="float-right" *ngIf="artwork.primaryImage !== ''">
+        <img
+          src="{{ artwork.primaryImage }}"
+          alt="{{ artwork.title }}"
+          class="img-responsive rounded"
+          style="max-height: 50px"
+        />
+      </div>
+    </a>
+
+    <button
+      class="float-right"
+      style="border: none; font-size: 1rem"
+      (click)="onRemoveArtFromGallery(idx)"
+    >
+      &minus;
+    </button>
+  </div>
+</div>

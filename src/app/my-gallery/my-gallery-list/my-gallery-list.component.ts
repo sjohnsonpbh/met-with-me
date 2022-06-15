@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ArtObject } from 'src/app/shared/artobject.model';
 import { MyGalleryService } from '../my-gallery.service';
 
 @Component({
@@ -7,15 +9,22 @@ import { MyGalleryService } from '../my-gallery.service';
   styleUrls: ['./my-gallery-list.component.css'],
 })
 export class MyGalleryListComponent implements OnInit {
-  constructor(private mygalleryService: MyGalleryService) {
-    // this.mygalleryService.
+  private artListSub: Subscription;
+
+  constructor(private mygalleryService: MyGalleryService) {}
+
+  public myArt: ArtObject[] = [];
+
+  ngOnInit(): void {
+    this.myArt = this.mygalleryService.getArtList();
+    this.artListSub = this.mygalleryService.myGalleryArtChanged.subscribe(
+      (updatedArtGalleryList) => {
+        this.myArt = updatedArtGalleryList;
+      }
+    );
   }
 
-  ngOnInit(): void {}
-
-  // this.myGalleryArtList.
-
-  removeArtFromGallery(id) {
-    // this.mygalleryService.(id);
+  onRemoveArtFromGallery(id) {
+    this.mygalleryService.removeArtFromGallery(id);
   }
 }
