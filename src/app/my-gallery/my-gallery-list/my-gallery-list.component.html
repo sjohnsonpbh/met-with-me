@@ -1,4 +1,4 @@
-<div class="row mb-3" *ngFor="let artwork of myArt; let idx = index">
+<div class="row mb-12" *ngFor="let artwork of myArt; let idx = index">
   <div class="col-md-12">
     <a
       style="cursor: pointer"
@@ -22,7 +22,7 @@
           src="{{ artwork.primaryImage }}"
           alt="{{ artwork.title }}"
           class="img-responsive rounded"
-          style="max-height: 50px"
+          style="max-height: 100px"
         />
       </div>
     </a>
