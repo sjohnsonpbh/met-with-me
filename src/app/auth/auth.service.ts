@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Users } from './users';
 import { tap, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -39,21 +40,50 @@ export interface UserData {
 @Injectable({providedIn: "root",
 })
 export class AuthService {
-
-
+ currUser = new BehaviorSubject<Users>(null);
+  currentUsers: any;
+  
   constructor(private http: HttpClient) {}
-
-
 
   signUp(email: string, password: string) {
     return this.http.post(SIGN_UP_URL + AUTH_API_KEY, {
       email,
       password,
       returnSecureToken: true,
-    });
-  }
+    })
+    .pipe(
+      tap((res:AuthResponseData) => {
+        const { email, localId, idToken, expiresIn } = res;
+        this.handleAuth(email, localId, idToken, +expiresIn);
+      })
+    );
 }
 
+signIn(email: string, password: string) {
+  return this.http
+    .post<AuthResponseData>(SIGN_IN_URL + AUTH_API_KEY, {
+      email,
+      password,
+      returnSecureToken: true,
+    })
+    .pipe(
+      tap((res) => {
+        const { email, localId, idToken, expiresIn } = res;
+        this.handleAuth(email, localId, idToken, +expiresIn);
+      })
+    );
+}
 
+handleAuth(email: string, userId: string, token: string, expiresIn: number) {
+  // Create Expiration Date for Token
+  const expDate = new Date(new Date().getTime() + expiresIn * 1000);
 
+  // Create a new user based on the info passed in the form and emit that user
+  const formUser = new Users(email, userId, token, expDate);
+  this.currUser.next(formUser);
 
+  // Save the new user in localStorage
+  localStorage.setItem("userData", JSON.stringify(formUser));
+}
+
+}
