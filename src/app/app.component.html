@@ -6,33 +6,40 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+  <hr />
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3
-        style="
-          color: #6d6e71;
-          font-size: 46px;
-          font-style: italic;
-          text-align: center;
-        "
-      >
-        If you can't make it to the Met, we'll bring it to you!
-      </h3>
-      <br />
-      <br />
-    </div>
-    <div class="col"></div>
+  <!-- Popular Artwork at the Met -->
+  <app-popular></app-popular>
+
+  <!-- Podcast -->
+  <app-podcasts></app-podcasts>
+
+  <!-- Text -->
+  <div class="container">
     <div class="row">
-      <div class="col">
-        <!-- show search when authenticated -->
-        <!-- {{ currentPath }}
+      <div class="col-md-12">
+        <h3
+          style="
+            color: #6d6e71;
+            font-size: 46px;
+            font-style: italic;
+            text-align: center;
+          "
+        >
+          If you can't make it to the Met, we'll bring it to you!
+        </h3>
+        <br />
+        <br />
+      </div>
+      <div class="col"></div>
+      <div class="row">
+        <div class="col">
+          <!-- show search when authenticated -->
+          <!-- {{ currentPath }}
         <app-search></app-search> -->
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>

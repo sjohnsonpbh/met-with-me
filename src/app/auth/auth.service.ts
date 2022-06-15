@@ -42,7 +42,7 @@ export interface UserData {
 export class AuthService {
  currUser = new BehaviorSubject<Users>(null);
   currentUsers: any;
-
+  
   constructor(private http: HttpClient) {}
 
   signUp(email: string, password: string) {
