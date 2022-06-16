@@ -37,6 +37,7 @@ export interface UserData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  private tokenExpTimer: any;
   currUser = new BehaviorSubject<Users>(null);
   currentUsers: any;
 
@@ -70,6 +71,13 @@ export class AuthService {
           this.handleAuth(email, localId, idToken, +expiresIn);
         })
       );
+  }
+  signOut() {
+    this.currUser.next(null);
+
+    localStorage.removeItem('my-gallery.users');
+
+    if (this.tokenExpTimer) clearTimeout(this.tokenExpTimer);
   }
 
   handleAuth(email: string, userId: string, token: string, expiresIn: number) {
