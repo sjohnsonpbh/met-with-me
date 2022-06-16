@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
     // search the API which only retrieves object IDs
     this.http
       .get(
-        `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${formattedQuery}`
+        `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=11&q=${formattedQuery}`
       )
       .subscribe((searchResponse: any) => {
         // place the first few object IDs in an array
