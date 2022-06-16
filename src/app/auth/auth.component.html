@@ -1,7 +1,17 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,187&family=Jura&display=swap"
+  rel="stylesheet"
+/>
+
+<div style= "width:10px; margin: 0 auto; padding:20px 0;"> </div>
+
 <div class="row">
   <div class="col-xs-12 col-md-6 offset-md-3">
 
-    <div style= "width:10px; margin: 0 auto; padding:20px 0;"> </div>
+      <div class="col-xl-8">
+      </div>
 
     <form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
       <!-- EMAIL - input -->
@@ -32,7 +42,6 @@
         />
       </div>
 
-
       <div style= "width:10px; margin: 0 auto; padding:10px 0;"> </div>
 
       <!-- SUBMIT - button -->
@@ -57,9 +66,17 @@ class ="space"> </div>
         Switch to {{ isSignInMode ? "Sign Up" : "Sign In" }}
       </button>
     </form>
+
+
     <!-- . . . -->
 <!-- ERROR -->
 <p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+
+<div class= "quote">
+  <blockquote>
+    "Every artist was an amateur." -- Ralph Waldo Emerson
+  </blockquote>
+</div>
 
 <div style= "width:10px; margin: 0 auto; padding:100px 0;"> </div>
 
