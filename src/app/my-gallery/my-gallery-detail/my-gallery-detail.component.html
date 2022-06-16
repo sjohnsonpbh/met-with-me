@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{ artObject.title }}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>{{ artObject.artistDisplayName }}</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>{{ artObject.medium }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <a href="{{ artObject.primaryImage }}" target="_blank">
+      <img
+        [src]="artObject.primaryImage"
+        [alt]="artObject.title"
+        class="img-responsive"
+        style="max-height: 300px"
+        onerror="src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png'"
+      />
+    </a>
+  </div>
+</div>

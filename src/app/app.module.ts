@@ -14,11 +14,24 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { FooterComponent } from './footer/footer.component';
 import { MyGalleryComponent } from './my-gallery/my-gallery.component';
+import { MyGalleryListComponent } from './my-gallery/my-gallery-list/my-gallery-list.component';
+import { MyGalleryDetailComponent } from './my-gallery/my-gallery-detail/my-gallery-detail.component';
 import { PodcastsComponent } from './podcasts/podcasts.component';
 import { PopularComponent } from './popular/popular.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, SearchComponent, NavbarComponent, FooterComponent, MyGalleryComponent, PodcastsComponent, PopularComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    SearchComponent,
+    NavbarComponent,
+    FooterComponent,
+    MyGalleryComponent,
+    MyGalleryListComponent,
+    MyGalleryDetailComponent,
+    PodcastsComponent,
+    PopularComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
