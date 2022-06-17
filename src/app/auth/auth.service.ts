@@ -40,6 +40,7 @@ export class AuthService {
   private tokenExpTimer: any;
   currUser = new BehaviorSubject<Users>(null);
   currentUsers: any;
+  isLoggedIn: boolean;
 
   constructor(private http: HttpClient) {}
 
@@ -69,6 +70,7 @@ export class AuthService {
         tap((res) => {
           const { email, localId, idToken, expiresIn } = res;
           this.handleAuth(email, localId, idToken, +expiresIn);
+          this.isLoggedIn = true;
         })
       );
   }
@@ -78,6 +80,7 @@ export class AuthService {
     localStorage.removeItem('my-gallery.users');
 
     if (this.tokenExpTimer) clearTimeout(this.tokenExpTimer);
+    this.isLoggedIn = false;
   }
 
   handleAuth(email: string, userId: string, token: string, expiresIn: number) {

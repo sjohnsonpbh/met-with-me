@@ -8,12 +8,19 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
   collapsed = true;
+  isLoggedIn: boolean;
 
   constructor(private authService: AuthService) {}
 
+  // remember me - !!user include the two bangs and the variable resolves to true or false depending on the type of variable.
   ngOnInit(): void {
-    //  this.isLoggedIn = this.authService.currUser()
+    this.authService.currUser.subscribe((user) => {
+      this.isLoggedIn = !!user;
+      console.log(!!user);
+    });
   }
-  // temporary simulate the authService
-  isLoggedIn = true;
+
+  signOut() {
+    this.authService.signOut();
+  }
 }
